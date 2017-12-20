@@ -4,6 +4,11 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="emp">
+
+	<sql id="sel">
+		select * from employees
+	</sql>
+
 	<select id="all" resultType="part01.dto.EmployeesDTO">
 		select * from employees
 	</select>
@@ -29,6 +34,23 @@
 		resultType="part01.dto.EmployeesDTO">
 		select * from employees where first_name like '%' ||
 		lower(#{first_name}) || '%' and salary >= #{salary}
+	</select>
+
+	<select id="mapList" parameterType="java.util.HashMap"
+		resultType="part01.dto.EmployeesDTO">
+		select * from employees where first_name like '%' ||
+		lower(#{first_name}) || '%' and salary >= #{salary}
+	</select>
+
+	<select id="moneyList" parameterType="java.util.HashMap"
+		resultType="ed">
+
+		<include refid="sel" />
+		
+		<![CDATA[
+		where salary >= #{losalary}
+		and salary <= #{hisalary}
+		]]>
 	</select>
 
 

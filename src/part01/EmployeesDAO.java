@@ -2,6 +2,7 @@ package part01;
 
 import java.io.IOException;
 import java.io.Reader;
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.io.Resources;
@@ -62,5 +63,13 @@ public class EmployeesDAO {
 	public List<EmployeesDTO> dtoMethod(EmployeesDTO dto) {
 		return session.selectList("emp.dtoList", dto);
 	} // end dtoMethod()
+
+	public List<EmployeesDTO> mapMethod(HashMap<String, Object> map) {
+		return session.selectList("emp.mapList", map);
+	} // end dtoMethod()
+
+	public List<EmployeesDTO> moneyMethod(HashMap<String, Integer> hp) {
+		return session.selectList("emp.moneyList", hp);
+	}
 
 } // end class
