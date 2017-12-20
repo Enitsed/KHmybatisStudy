@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mem">
+	<select id="all" resultType="part02.dto.MemDTO">
+		select * from mem order by num
+	</select>
+	<!-- insert, update, delete요소는 resultType 속성을 지정하지 않는다. -->
+	<!-- insert 할 때 null 값을 허용할 때는 #{컬럼명, jdbcType=VARCHAR} -->
+	<insert id="ins" parameterType="part02.dto.MemDTO">
+		insert into mem
+		values(mem_num_seq.nextval, #{name, jdbcType=VARCHAR}, #{age}, #{loc,
+		jdbcType=VARCHAR})
+	</insert>
+
+	<update id="upt" parameterType="java.util.HashMap">
+		update mem set loc = #{loc}
+		where
+		num = #{num}
+	</update>
+
+	<delete id="del" parameterType="java.lang.Integer">
+		delete from mem where num =
+		#{num}
+	</delete>
+</mapper>

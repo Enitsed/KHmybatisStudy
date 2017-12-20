@@ -20,5 +20,6 @@
 	</environments>
 	<mappers>
 		<mapper resource="part01/empMapper.xml" />
+		<mapper resource="part02/memMapper.xml" />
 	</mappers>
 </configuration>
