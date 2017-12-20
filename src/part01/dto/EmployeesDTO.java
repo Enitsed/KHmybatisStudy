@@ -2,12 +2,12 @@ package part01.dto;
 
 import java.util.Date;
 
-public class EmployeeDTO {
+public class EmployeesDTO {
 	private String first_name;
 	private int salary;
 	private Date hire_date;
 
-	public EmployeeDTO() {
+	public EmployeesDTO() {
 
 	}
 

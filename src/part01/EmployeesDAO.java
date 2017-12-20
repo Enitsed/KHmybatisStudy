@@ -9,7 +9,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-import part01.dto.EmployeeDTO;
+import part01.dto.EmployeesDTO;
 
 public class EmployeesDAO {
 
@@ -43,9 +43,24 @@ public class EmployeesDAO {
 
 	} // 생성자
 
-	public List<EmployeeDTO> allMethod() {
-								// namespace.id
-		return session.selectList("emp.all");
+	public List<EmployeesDTO> allMethod() {
+		return session.selectList("emp.all"); // namespace.id
 	} // end allMethod()
+
+	public int countMethod() {
+		return session.selectOne("emp.one");
+	} // end countMethod()
+
+	public List<EmployeesDTO> searchMethod(String name) {
+		return session.selectList("emp.search", name);
+	} // end searchMethod()
+
+	public List<EmployeesDTO> yearMethod(int year) {
+		return session.selectList("emp.yearList", year);
+	} // end yearMethod()
+
+	public List<EmployeesDTO> dtoMethod(EmployeesDTO dto) {
+		return session.selectList("emp.dtoList", dto);
+	} // end dtoMethod()
 
 } // end class
