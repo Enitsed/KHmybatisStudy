@@ -21,5 +21,7 @@
 	<mappers>
 		<mapper resource="part01/empMapper.xml" />
 		<mapper resource="part02/memMapper.xml" />
+		<mapper resource="part03/joinMapper.xml" />
+		<mapper resource="part04/memMapper.xml" />
 	</mappers>
 </configuration>

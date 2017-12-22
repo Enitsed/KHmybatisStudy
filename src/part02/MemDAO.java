@@ -31,4 +31,32 @@ public class MemDAO extends ComSession {
 		session.delete("mem.del", num);
 	}
 
+	public int keyMethod() {
+		return session.selectOne("mem.keyNum");
+	}
+
+	public void multiInsertMethod(List<MemDTO> list) {
+		session.insert("mem.multiIns", list);
+	}
+
+	public int multiDeleteMethod(List<Integer> aList) {
+		return session.delete("mem.multiDel", aList);
+	}
+
+	public int multiDeleteMethod(Integer[] array) {
+		return session.delete("mem.multiDel2", array);
+	}
+
+	public List<MemDTO> searchMethod(MemDTO mt) {
+		return session.selectList("mem.search", mt);
+	}
+
+	public void multiUptMethod(MemDTO dto) {
+		session.update("mem.multiUpt", dto);
+	}
+
+	public void locInseMethod(MemDTO dto) {
+		session.insert("mem.insData", dto);
+	}
+
 } // end class

@@ -1,4 +1,4 @@
-package part02.dto;
+package part04.dto;
 
 public class MemDTO {
 	private int num;
