@@ -18,4 +18,8 @@ public class MemDAO extends ComSession {
 		return session.selectList("per.all");
 	}
 
+	public void deleteMethod(String[] valList) {
+		session.delete("per.del", valList);
+	}
+	
 } // end class

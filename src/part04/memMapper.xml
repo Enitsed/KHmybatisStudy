@@ -5,5 +5,14 @@
 	<select id="all" resultType="part04.dto.MemDTO">
 		select * from mem order by num
 	</select>
+
+	<delete id="del" parameterType="java.lang.String">
+		delete from mem
+	 	where num in(
+	 	<foreach collection="array" item="element" separator=",">
+	 		#{element}
+	 	</foreach>
+	 	)
+	</delete>
 </mapper>
 

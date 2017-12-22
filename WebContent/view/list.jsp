@@ -9,14 +9,29 @@
 
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#del').click(function() {
+			$('form').submit();
+		});
+		
+		$('#all').on('click', function() {
+			$('input[name=chk]').prop('checked', $(this).prop("checked"));
+		});
+		
+	});
+</script>
 </head>
 <body>
 	<input type="button" id="del" value="삭제" />
 	<form name="frm" method="get" action="myList">
 		<table>
 			<tr>
-				<th><input type="checkbox" id="all" value="전체" /> 전체</th>
+				<th>
+				<label for="all">
+					<input type="checkbox" id="all" value="전체" /> 전체
+				</label>
+				</th>
 				<th>num</th>
 				<th>name</th>
 				<th>age</th>

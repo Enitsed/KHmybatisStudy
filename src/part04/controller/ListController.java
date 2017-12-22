@@ -29,6 +29,10 @@ public class ListController extends HttpServlet {
 		RequestDispatcher dispatcher = req.getRequestDispatcher("view/list.jsp");
 		MemDAO dao = new MemDAO();
 		List<MemDTO> aList = dao.allMethod();
+		String[] valList = req.getParameterValues("chk");
+		if(valList!=null) {
+			dao.deleteMethod(valList);
+		}
 		req.setAttribute("aList", aList);
 		dispatcher.forward(req, resp);
 	}
