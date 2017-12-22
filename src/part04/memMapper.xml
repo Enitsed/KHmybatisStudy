@@ -6,7 +6,7 @@
 		select * from mem order by num
 	</select>
 
-	<delete id="del" parameterType="java.lang.String">
+	<delete id="del">
 		delete from mem
 	 	where num in(
 	 	<foreach collection="array" item="element" separator=",">
@@ -15,4 +15,3 @@
 	 	)
 	</delete>
 </mapper>
-
